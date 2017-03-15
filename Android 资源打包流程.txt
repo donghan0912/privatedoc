@@ -1,0 +1,16 @@
+资源文件是通过Android资源打包工具aapt（Android Asset Package Tool）打包到APK文件里面的
+	1. 类型为res/animator、res/anim、res/color、res/drawable（非Bitmap文件，即非.png、.9.png、.jpg、.gif文件）、
+		res/layout、res/menu、res/values和res/xml的资源文件均会从文本格式的XML文件编译成二进制格式的XML文件
+	2. 将文本类型的xml文件编译成二进制格式xml文件作用：空间占用更小，提高解析效率
+	3. 赋予每一个非assets资源一个ID值，这些ID值以常量的形式定义在一个R.Java文件中。
+    4. 生成一个resources.arsc文件，用来描述那些具有ID值的资源的配置信息，它的内容就相当于是一个资源索引表。
+	
+	5. 特殊资源类型
+		在Android资源中，有一种资源类型称为Public，它们一般是定义在res/values/public.xml文件中，形式如下所示：
+		<?xml version="1.0" encoding="utf-8"?>  
+			<resources>  
+			<public type="string" name="string3" id="0x7f040001" />  
+		</resources>  
+		这个public.xml用来告诉Android资源打包工具aapt，将类型为string的资源string3的ID固定为0x7f040001。
+		为什么需要将某一个资源项的ID固定下来呢？一般来说，当我们将自己定义的资源导出来给第三方应用程序使用时，
+		为了保证以后修改这些导出资源时，仍然保证第三方应用程序的兼容性，就需要给那些导出资源一个固定的资源ID。
