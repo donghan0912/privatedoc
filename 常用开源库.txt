@@ -1,0 +1,1 @@
+https://github.com/frankiesardo/icepick 简化横竖屏切换，bundle保存数据
